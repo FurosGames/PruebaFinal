@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDZASO - Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-50">
+    
+    <div class="flex min-h-screen">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-200 flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-700 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-gray-800">CRUDZASO</span>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="flex-1 p-4">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-blue-50 text-blue-600 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    <span class="font-medium">My Tasks</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    <span class="font-medium">Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1">
+            
+            <!-- TOP BAR -->
+            <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2 text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="text-gray-400">›</span>
+                    <span class="font-medium">Dashboard</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button class="text-gray-600 hover:text-gray-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=3b82f6&color=fff" alt="Alex Morgan" class="w-10 h-10 rounded-full">
+                        <div>
+                            <div class="font-semibold text-gray-800">Alex Morgan</div>
+                            <div class="text-xs text-gray-500">Product Designer</div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <button id="btnCerrarSesion" class="text-red-500 hover:text-red-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- CONTENT AREA -->
+            <div class="p-8">
+                
+                <!-- Page Header -->
+                <div class="flex items-start justify-between mb-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Task Manager</h1>
+                        <p class="text-gray-600">Overview of your current academic performance tasks.</p>
+                    </div>
+                    <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        New Task
+                    </button>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Total Tasks -->
+                    <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gray-600 font-medium">Total Tasks</span>
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">24</div>
+                        <div class="flex items-center gap-1 text-sm text-green-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                            <span>+12% from last week</span>
+                        </div>
+                    </div>
+
+                    <!-- Completed -->
+                    <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gray-600 font-medium">Completed</span>
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">18</div>
+                        <div class="flex items-center gap-1 text-sm text-green-600">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>On track</span>
+                        </div>
+                    </div>
+
+                    <!-- Pending -->
+                    <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gray-600 font-medium">Pending</span>
+                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">6</div>
+                        <div class="flex items-center gap-1 text-sm text-orange-600">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>2 High Priority</span>
+                        </div>
+                    </div>
+
+                    <!-- Overall Progress -->
+                    <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gray-600 font-medium">Overall Progress</span>
+                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">75%</div>
+                        <div class="flex items-center gap-1 text-sm text-green-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                            <span>Keep it up</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Table -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+                    
+                    <!-- Search and Filters -->
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div class="relative flex-1 max-w-md">
+                                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                                <input 
+                                    type="text" 
+                                    placeholder="Search tasks..."
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    id="searchInput"
+                                    onkeyup="filterTasks()"
+                                >
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="filterByStatus('all')" class="filter-btn active px-4 py-2 rounded-lg font-medium">All Tasks</button>
+                                <button onclick="filterByStatus('pending')" class="filter-btn px-4 py-2 rounded-lg font-medium">Pending</button>
+                                <button onclick="filterByStatus('completed')" class="filter-btn px-4 py-2 rounded-lg font-medium">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-blue-50">
+                                <tr>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">TASK NAME</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">ASSIGNEE</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">STATUS</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">PRIORITY</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">DUE DATE</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="taskTableBody">
+                                <!-- Tasks will be rendered here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- NEW TASK MODAL -->
+    <div id="taskModal" class="modal">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">New Task</h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form onsubmit="addTask(event)" id="taskForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Task Name</label>
+                    <input 
+                        type="text" 
+                        id="taskName"
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter task name"
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Assignee</label>
+                    <input 
+                        type="text" 
+                        id="taskAssignee"
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter assignee name"
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Priority</label>
+                    <select 
+                        id="taskPriority"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Due Date</label>
+                    <input 
+                        type="date" 
+                        id="taskDate"
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                </div>
+
+                <div class="flex gap-3">
+                    <button 
+                        type="button"
+                        onclick="closeModal()"
+                        class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-semibold"
+                    >
+                        Cancel
+                    </button>
+                    <button 
+                        type="submit"
+                        class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold"
+                    >
+                        Add Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script>
+        // Sample task data
+        let tasks = [
+            {
+                id: 1,
+                name: "Update Documentation",
+                assignee: "Sarah Lin",
+                status: "In Progress",
+                priority: "Medium",
+                dueDate: "Oct 24, 2023"
+            },
+            {
+                id: 2,
+                name: "Fix Login Authentication",
+                assignee: "Raj Patel",
+                status: "Pending",
+                priority: "High",
+                dueDate: "Oct 22, 2023"
+            },
+            {
+                id: 3,
+                name: "Quarterly Review",
+                assignee: "Michelle O.",
+                status: "Completed",
+                priority: "Low",
+                dueDate: "Oct 20, 2023"
+            },
+            {
+                id: 4,
+                name: "Database Optimization",
+                assignee: "Carlos M.",
+                status: "In Progress",
+                priority: "High",
+                dueDate: "Oct 25, 2023"
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // Render tasks
+        function renderTasks() {
+            const tbody = document.getElementById('taskTableBody');
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            let filteredTasks = tasks.filter(task => {
+                const matchesSearch = task.name.toLowerCase().includes(searchTerm) || 
+                                    task.assignee.toLowerCase().includes(searchTerm);
+                const matchesFilter = currentFilter === 'all' || 
+                                    task.status.toLowerCase().replace(' ', '') === currentFilter;
+                return matchesSearch && matchesFilter;
+            });
+
+            tbody.innerHTML = filteredTasks.map(task => {
+                const statusColors = {
+                    'In Progress': 'text-blue-700 bg-blue-100',
+                    'Pending': 'text-orange-700 bg-orange-100',
+                    'Completed': 'text-green-700 bg-green-100'
+                };
+
+                const priorityColors = {
+                    'Low': 'text-green-600',
+                    'Medium': 'text-yellow-600',
+                    'High': 'text-red-600'
+                };
+
+                return `
+                    <tr class="task-row border-b border-gray-100">
+                        <td class="px-6 py-4 font-medium text-gray-900">${task.name}</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(task.assignee)}&background=random" 
+                                     class="w-8 h-8 rounded-full" alt="${task.assignee}">
+                                <span class="text-gray-700">${task.assignee}</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 rounded-full text-sm font-medium ${statusColors[task.status]}">
+                                ${task.status}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2 ${priorityColors[task.priority]}">
+                                <span class="w-2 h-2 rounded-full bg-current"></span>
+                                <span class="font-medium">${task.priority}</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-gray-700">${task.dueDate}</td>
+                        <td class="px-6 py-4">
+                            <div class="flex gap-2">
+                                ${task.status === 'Completed' ? `
+                                    <button onclick="viewTask(${task.id})" class="text-blue-600 hover:text-blue-700">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                        </svg>
+                                    </button>
+                                ` : `
+                                    <button onclick="editTask(${task.id})" class="text-gray-600 hover:text-gray-700">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                        </svg>
+                                    </button>
+                                    <button onclick="deleteTask(${task.id})" class="text-red-600 hover:text-red-700">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                        </svg>
+                                    </button>
+                                `}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Filter functions
+        function filterTasks() {
+            renderTasks();
+        }
+
+        function filterByStatus(status) {
+            currentFilter = status;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-gray-200', 'text-gray-900'));
+            event.target.classList.add('active', 'bg-gray-200', 'text-gray-900');
+            renderTasks();
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('taskModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('taskModal').classList.remove('active');
+            document.getElementById('taskForm').reset();
+        }
+
+        // Add new task
+        function addTask(event) {
+            event.preventDefault();
+            
+            const newTask = {
+                id: tasks.length + 1,
+                name: document.getElementById('taskName').value,
+                assignee: document.getElementById('taskAssignee').value,
+                status: 'Pending',
+                priority: document.getElementById('taskPriority').value,
+                dueDate: new Date(document.getElementById('taskDate').value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+            };
+
+            tasks.push(newTask);
+            renderTasks();
+            closeModal();
+        }
+
+        // Task actions
+        function editTask(id) {
+            alert(`Edit task ${id} - Feature coming soon!`);
+        }
+
+        function deleteTask(id) {
+            if (confirm('Are you sure you want to delete this task?')) {
+                tasks = tasks.filter(task => task.id !== id);
+                renderTasks();
+            }
+        }
+
+        function viewTask(id) {
+            alert(`View task ${id} - Feature coming soon!`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTasks();
+            
+            // Set default active filter button
+            document.querySelector('.filter-btn').classList.add('bg-gray-200', 'text-gray-900');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('taskModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

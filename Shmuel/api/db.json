@@ -1,0 +1,79 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "name": "Jose",
+      "email": "asd@asd.asd",
+      "password": "asd123",
+      "is_admin": false
+    },
+    {
+      "id": "2",
+      "name": "Samuel",
+      "email": "dsa@dsa.dsa",
+      "password": "dsa123",
+      "is_admin": true
+    },
+    {
+      "id": "c542",
+      "name": "qwe",
+      "email": "qwe@qwe.qwe",
+      "password": "qwe123",
+      "is_admin": false
+    },
+    {
+      "id": "fb4f",
+      "name": "manuel r",
+      "email": "qwe@qwe.qwe",
+      "password": "qwe123",
+      "is_admin": false
+    }
+  ],
+  "tareas": [
+    {
+      "id": "045e",
+      "name": "jose",
+      "assignee": "vdfv",
+      "status": "Pending",
+      "priority": "Medium",
+      "dueDate": "Feb 1, 2026",
+      "id_user": "1"
+    },
+    {
+      "id": "f07d",
+      "name": "gndfgn",
+      "assignee": "gndfggf",
+      "status": "Pending",
+      "priority": "Medium",
+      "dueDate": "Feb 1, 2026",
+      "id_user": "1"
+    },
+    {
+      "id": "8076",
+      "name": "dsnvk",
+      "assignee": "fmdbf",
+      "status": "Pending",
+      "priority": "Low",
+      "dueDate": "Feb 7, 2026",
+      "id_user": "1"
+    },
+    {
+      "id": "cdf9",
+      "name": "Jose",
+      "assignee": "sdfsdfdsf",
+      "status": "Pending",
+      "priority": "Low",
+      "dueDate": "Feb 12, 2026",
+      "id_user": "1"
+    },
+    {
+      "id": "aa53",
+      "name": "dsfgfdg",
+      "assignee": "dsfgdfsg",
+      "status": "Completed",
+      "priority": "High",
+      "dueDate": "Feb 13, 2026",
+      "id_user": "c542"
+    }
+  ]
+}

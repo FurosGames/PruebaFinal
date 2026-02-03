@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body data-page="login" class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Card -->
+    <div class="bg-white w-full max-w-md p-8 rounded-xl shadow-lg">
+
+        <!-- Icon -->
+        <div class="flex justify-center mb-4">
+            <div class="bg-blue-100 p-3 rounded-full">
+                📋
+            </div>
+        </div>
+
+        <!-- Title -->
+        <span class="">
+            <h2 id="formTitle" class="text-2xl font-bold text-center">
+                Welcome Back
+            </h2>
+            <p class="text-sm text-gray-600 text-center mb-4">Enter your credentials to access the platform</p>
+        </span>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label class="text-sm text-gray-600">Correo electrónico</label>
+                <input id="emailLogin" required type="email"
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="name@example.com" />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Contraseña</label>
+                <input id="passwordLogin" required type="password"
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="*********" />
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold">
+                Ingresar
+            </button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="registerForm" class="space-y-4 hidden">
+            <div>
+                <label class="text-sm text-gray-600">Nombre completo</label>
+                <input id="nameRegister" required type="text"
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Juan Pérez" />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Correo electrónico</label>
+                <input id="emailRegister" required type="email"
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="name@example.com" />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Contraseña</label>
+                <input id="passwordRegister" required type="password"
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="***********" />
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold">
+                Registrarse
+            </button>
+        </form>
+
+        <!-- TOGGLE -->
+        <p class="text-center text-sm text-gray-600 mt-6">
+            <span id="toggleText">¿No tienes cuenta?</span>
+            <button id="toggleForm" class="text-blue-500 font-semibold hover:underline ml-1">
+                <span id="toggleTextLink">Regístrate</span>
+            </button>
+        </p>
+
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js" type="module"></script>
+
+</body>
+
+</html>
